@@ -1,0 +1,190 @@
+@mixin throw {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin throw-li {
+  @include throw();
+  list-style: none;
+}
+
+@mixin throw-btn {
+  position: relative;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin btn-modal {
+  @include flex-center-center();
+  cursor: pointer;
+  margin-bottom: 5px;
+  border: none;
+  padding: 15px 20px;
+  font-weight: 600;
+  background-color: $col-pur;
+  color: $bac_wi;
+  transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+  & svg {
+    display: none;
+    margin-right: 6px;
+    @include rotating();
+  }
+  & svg > path {
+    transition: stroke 0.4s ease-in-out;
+  }
+  &:hover svg > path {
+    stroke: $col-pur-dr;
+    transition: stroke 0.4s ease-in-out;
+  }
+  &:focus svg > path {
+    stroke: $col-pur-li;
+    transition: stroke 0.4s ease-in-out;
+  }
+  &:active svg > path {
+    stroke: $col-pur-li;
+    transition: stroke 0.4s ease-in-out;
+  }
+  &:hover {
+    background-color: $col-pur-li;
+    color: $bac_wi;
+    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+  }
+  &:focus {
+    background-color: $col-pur-sw;
+    color: $bac_wi;
+    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+  }
+  &:active {
+    background-color: $col-pur-dr;
+    color: $bac_wi;
+    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+  }
+  &:disabled {
+    background-color: $col_gr-sw;
+    color: $bac_wi;
+    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+  }
+  &-active {
+    & svg {
+      display: block;
+    }
+  }
+}
+
+@mixin modal {
+  @include flex-center-center();
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: #3333338a;
+  &-open {
+    animation-name: modal-open;
+    @include animation();
+    @keyframes modal-open {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+  &-close {
+    animation-name: modal-close;
+    @include animation();
+    @keyframes modal-close {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+  }
+}
+
+@mixin animation {
+  animation-duration: 0.4s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@mixin dropdown-open {
+  animation-name: dropdown-open;
+  @include animation();
+  @keyframes dropdown-open {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin dropdown-close {
+  animation-name: dropdown-close;
+  @include animation();
+  @keyframes dropdown-close {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+  }
+}
+
+@mixin rotating {
+  animation: rotating 1s linear infinite;
+  @keyframes rotating {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+}

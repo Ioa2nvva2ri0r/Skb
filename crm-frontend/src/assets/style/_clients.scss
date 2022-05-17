@@ -1,0 +1,204 @@
+.clients {
+  position: relative;
+  min-height: 400px;
+  padding: 40px 0;
+  &__container {
+    max-width: 1226px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  &__title {
+    @include throw();
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    color: $col_bl;
+  }
+  &__subtitle {
+    @include throw();
+    opacity: 0.7;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0.3px;
+    color: $col-gr;
+    &:nth-child(1) {
+      min-width: 24px;
+      margin-right: 37px;
+    }
+    &:nth-child(2) {
+      min-width: 172px;
+      margin-right: 22px;
+    }
+    &:nth-child(3) {
+      margin-right: 11px;
+    }
+    &:nth-child(4) {
+      margin-right: 11px;
+    }
+    &:nth-child(5) {
+      opacity: 1;
+      margin-right: 73px;
+    }
+    &:nth-child(6) {
+      opacity: 1;
+      min-width: 86px;
+    }
+    &-container {
+      display: grid;
+      grid-template-columns: 7.2% 32.1% 15.3% 15% 14% 16%;
+      min-width: 728px;
+      min-height: 24px;
+      padding: 0 20px 8px 20px;
+    }
+    &-filter {
+      cursor: pointer;
+      transition: opacity 0.4s ease-in-out, color 0.4s ease-in-out;
+      & svg {
+        margin-left: 3px;
+      }
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 1;
+        color: $col_bl;
+        transition: opacity 0.4s ease-in-out, color 0.4s ease-in-out;
+      }
+    }
+    &-active {
+      opacity: 1;
+      color: $col-pur;
+      &-up {
+        & svg {
+          transform: rotate(180deg);
+        }
+      }
+      &-down {
+        & svg {
+          transform: rotate(0deg);
+        }
+      }
+    }
+    &-content {
+      white-space: nowrap;
+      margin-left: 1px;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 14px;
+      color: $col-pur;
+    }
+  }
+  &__list {
+    @include throw-li();
+    width: 100%;
+    min-width: 728px;
+    padding-bottom: 40px;
+    &-container {
+      @include flex-center();
+      flex-direction: column;
+    }
+  }
+  &__message {
+    margin: 0;
+    opacity: 1;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: $col-gr;
+    transition: opacity 0.4s ease-in-out;
+  }
+  &__btn {
+    @include flex-center();
+    cursor: pointer;
+    padding: 13.5px 25.5px;
+    background-color: transparent;
+    border: 1px solid $col-pur;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+    color: $col-pur;
+    transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+    & svg {
+      margin-right: 10px;
+    }
+    & svg > path {
+      transition: fill 0.4s ease-in-out;
+    }
+    &:hover {
+      border-color: $col-pur-li;
+      background-color: $col-pur-li;
+      color: $bac_wi;
+      transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+    }
+    &:focus {
+      border-color: $col-pur-sw;
+      background-color: $col-pur-sw;
+      color: $bac_wi;
+      transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+    }
+    &:active {
+      border-color: $col-pur-dr;
+      background-color: $col-pur-dr;
+      color: $bac_wi;
+      transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+    }
+    &:hover svg path {
+      fill: $bac_wi;
+      transition: fill 0.4s ease-in-out;
+    }
+    &:focus svg path {
+      fill: $bac_wi;
+      transition: fill 0.4s ease-in-out;
+    }
+    &:active svg path {
+      fill: $bac_wi;
+      transition: fill 0.4s ease-in-out;
+    }
+    &:disabled {
+      border-color: $col_gr-sw;
+      background-color: transparent;
+      color: $col_gr-sw;
+      transition: border-color 0.4s ease-in-out, color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+    }
+    &:disabled svg path {
+      fill: $bac_wi;
+      transition: fill 0.4s ease-in-out;
+    }
+  }
+  @media (max-width: 1150px) {
+    &__subtitle {
+      &-container {
+        grid-template-columns: 7.35% 24.6% 17% 15.5% 15.6% 21%;
+      }
+      &:nth-child(3) {
+        padding-right: 31px;
+      }
+      &:nth-child(4) {
+        padding-right: 25px;
+      }
+    }
+    &__list-container-preloader {
+      width: 36px;
+    }
+  }
+  @media (max-width: 880px) {
+    &__subtitle {
+      &-container {
+        grid-template-columns: 8.8% 31.6% 14.5% 14% 18.5% 13%;
+        padding-bottom: 7px;
+      }
+      &:nth-child(3),
+      &:nth-child(4) {
+        padding-right: 0;
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    padding-top: 30px;
+    &__title {
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+  }
+}

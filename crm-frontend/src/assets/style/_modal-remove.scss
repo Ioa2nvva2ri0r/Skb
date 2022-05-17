@@ -1,0 +1,37 @@
+.modal-remove {
+  @include modal();
+  &__container {
+    @include flex-center();
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    max-width: 450px;
+    min-height: 215px;
+    padding-top: 22px;
+    padding-bottom: 27px;
+    background-color: $bac_wi;
+  }
+  &__title {
+    @include throw();
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+  &__desc {
+    @include throw();
+    text-align: center;
+    max-width: 275px;
+    margin-bottom: 25px;
+  }
+  &__btn-delete {
+    @include btn-modal();
+    width: 130px;
+  }
+  @media (max-width: 500px) {
+    &__container {
+      max-width: 300px;
+      min-height: max-content;
+    }
+  }
+}

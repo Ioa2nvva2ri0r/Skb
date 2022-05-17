@@ -1,0 +1,9 @@
+// fonts
+import '../assets/fonts/opensans-bold.woff';
+import '../assets/fonts/opensans-bold.woff2';
+import '../assets/fonts/opensans-regular.woff';
+import '../assets/fonts/opensans-regular.woff2';
+import '../assets/fonts/opensans-semibold.woff';
+import '../assets/fonts/opensans-semibold.woff2';
+// styles
+import '../assets/style/main.scss';

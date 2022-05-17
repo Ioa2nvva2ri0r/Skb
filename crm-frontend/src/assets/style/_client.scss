@@ -1,0 +1,186 @@
+.client {
+  &__item {
+    display: grid;
+    grid-template-columns: 7.2% 32% 15.2% 15.1% 13.6% 17%;
+    min-height: 60px;
+    border-bottom: 1px solid $col_gr-li;
+    padding: 10px 15px 10px 20px;
+    background-color: $bac_wi;
+  }
+  &__title {
+    @include throw();
+    font-size: 14px;
+    font-weight: 400;
+    &-id {
+      @include flex-center();
+      width: 100%;
+      max-width: 82px;
+      font-size: 12px;
+      line-height: 16px;
+      color: #b0b0b0;
+    }
+    &-fullName {
+      @include flex-center();
+      padding-right: 12px;
+    }
+    &-date {
+      @include flex-center();
+      flex-wrap: wrap;
+      & span:first-child {
+        margin-right: 9px;
+      }
+      & span:last-child {
+        color: #b0b0b0;
+      }
+    }
+  }
+  &__contact {
+    display: block;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    overflow: hidden;
+    transition: opacity 0.4s ease-in-out;
+    &-tooltipe {
+      display: block;
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+      top: -41px;
+      left: 50%;
+      width: max-content;
+      padding: 7px 14px 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 16px;
+      background-color: $col-bl;
+      color: $bac_wi;
+      transform: translateX(-50%);
+      transition: opacity 0.4s ease-in-out;
+      &::before {
+        position: absolute;
+        content: "";
+        top: 20px;
+        left: 50%;
+        z-index: -1;
+        width: 14px;
+        height: 14px;
+        background-color: $col-bl;
+        transform: translateX(-50%) rotate(45deg);
+      }
+    }
+    & svg {
+      opacity: 0.7;
+      transition: opacity 0.4s ease-in-out;
+    }
+    & &-icon {
+      width: 20px;
+      height: 20px;
+      margin-top: -2px;
+      margin-left: -2px;
+    }
+    &:hover &-tooltipe,
+    &:focus &-tooltipe,
+    &:active &-tooltipe {
+      opacity: 1;
+      z-index: 10;
+      transition: opacity 0.4s ease-in-out;
+    }
+    &:hover svg,
+    &:focus svg,
+    &:active svg {
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+    }
+    &-box {
+      @include flex-center();
+    }
+    &-list {
+      @include throw-li();
+      @include flex-center();
+      flex-wrap: wrap;
+      max-width: 106px;
+    }
+    &-item {
+      position: relative;
+      height: 16px;
+      width: 16px;
+      &:not(:nth-child(5)):not(:last-child) {
+        margin-right: 6.5px;
+      }
+      &-active {
+        margin-bottom: 6.5px;
+      }
+      &-hidden {
+        display: none;
+      }
+    }
+    &-btn {
+      @include throw-btn();
+      @include flex-center-center();
+      display: none;
+      height: 16px;
+      width: 16px;
+      border: 1px solid $col-pur;
+      border-radius: 100%;
+      font-size: 8px;
+      font-weight: 600;
+      line-height: 8px;
+      transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $col-pur;
+        color: $bac_wi;
+        transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+      }
+    }
+  }
+  &__btn {
+    @include throw-btn();
+    @include flex-center();
+    font-size: 15px;
+    transition: color 0.4s ease-in-out;
+    &-box {
+      @include flex-center-between();
+      flex-wrap: wrap;
+      max-width: 189px;
+    }
+    &-change {
+      margin-right: 10px;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $col-pur;
+        transition: color 0.4s ease-in-out;
+      }
+    }
+    &-delete {
+      &:hover,
+      &:focus,
+      &:active {
+        color: $col-red;
+        transition: color 0.4s ease-in-out;
+      }
+    }
+  }
+  @media (max-width: 1150px) {
+    &__item {
+      grid-template-columns: 7.35% 24.6% 16.6% 15.5% 15.6% 21%;
+    }
+  }
+  @media (max-width: 880px) {
+    &__item {
+      grid-template-columns: 8.55% 31.6% 14.1% 14.4% 18.5% 13%;
+      padding-bottom: 8px;
+    }
+    &__btn {
+      &-change {
+        margin-bottom: 8px;
+      }
+      &-delete {
+        line-height: 15px;
+      }
+    }
+  }
+}

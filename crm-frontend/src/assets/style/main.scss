@@ -1,0 +1,66 @@
+@import "_variables.scss";
+@import "_mixin.scss";
+@import "_common.scss";
+@import "_header";
+@import "_clients";
+@import "_client";
+@import "_modal-main";
+@import "_modal-remove";
+
+.error {
+  text-align: center;
+  overflow: hidden;
+  max-height: 0;
+  width: 100%;
+  padding: 0 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: $col-red;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+  &__active {
+    max-height: 1000px;
+    transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+  }
+  &__input {
+    border-color: $col-red;
+  }
+}
+
+.preloader {
+  &__container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    padding: 20px;
+    background-color: $bac_wi;
+    &-active {
+      display: block;
+    }
+  }
+  &__content {
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: $col-pur-sw;
+    &-box {
+      @include flex-center();
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-icon {
+      width: 30px;
+      height: 30px;
+      border: solid 6px transparent;
+      border-top-color: $col-pur-sw;
+      border-left-color: $col-pur-sw;
+      border-radius: 50%;
+      @include rotating();
+    }
+  }
+}
