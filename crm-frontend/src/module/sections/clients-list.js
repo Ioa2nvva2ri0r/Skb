@@ -50,7 +50,7 @@ clientsBtnDone.insertAdjacentHTML(
 
 function createTitleFilter(objClass, content, key) {
   const clientsSubtitleFilter = el(
-    'h3',
+    'h2',
     {
       className: `${objClass.main} ${objClass.filter} ${
         content === 'ID' ? `${objClass.active} ${objClass.activeUp}` : ''
