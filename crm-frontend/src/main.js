@@ -30,6 +30,7 @@ setChildren(document.body, [header, main, preloader]);
 
 (() => {
   function messageListClients(message) {
+    clientsMessage.textContent = '';
     return clientsList.childElementCount === 0
       ? (clientsMessage.textContent = message)
       : setChildren(clientsContainer, [
